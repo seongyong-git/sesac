@@ -92,7 +92,7 @@ def print_movie_menu(movies):
 
 
 def print_movie_pamphlet(movie):
-    title = f"영화 팜플렛: {movie}"
+    title = f"{movie}"
     for line in _framed_lines(title, movie):
         print(line)
     print()
