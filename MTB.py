@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 
 import pandas as pd
+from movie_pamphlet import print_movie_menu, print_movie_pamphlet
 
 def clear_console():
     os.system("cls")
@@ -67,7 +68,7 @@ class ReservationApp:
             print(f"영화 CSV 파일이 없습니다: {self.data_dir}")
             return None
 
-        print_options("영화 목록:", movies)
+        print_movie_menu(movies)
         return movies[get_number_choice("영화 번호를 선택하세요: ", len(movies)) - 1]
 
     def choose_theater(self, movie):
@@ -149,6 +150,7 @@ class ReservationApp:
             return
 
         clear_console()
+        print_movie_pamphlet(movie)
         theater = self.choose_theater(movie)
         seats, seats_path = self.load_seats(theater, movie)
 
